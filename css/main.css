@@ -1,0 +1,72 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    background-color: #2E3436;
+    color: #EEEEEE;
+}
+
+a {
+    color: #EEE;
+}
+
+div#wrapper {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -21px;
+}
+
+div#footer, div#push {
+    clear: both;
+    height: 20px;
+}
+
+div#footer {
+    background-color: #555753;
+    padding: 0 10px;
+    text-align: right;
+    position: relative;
+    border-top: 1px solid #EEEEEE;
+}
+
+div#about, div#tips {
+    text-align: left;
+}
+
+div#footer a {
+    text-decoration: none;
+}
+
+div#footer .amp {
+    color: #D3D7CF;
+}
+
+div#notepad {
+    position: absolute;
+    width: 500px;
+    height: 450px;
+    top: 50%;
+    left: 50%;
+    margin: -250px 0 0 -225px;
+    clear: left;
+    border: 5px solid #F57900;
+    border-radius: 40px;
+}
+
+div#about, div#tips {
+    position: absolute;
+    right: 0;
+    bottom: 20px;
+    width: 300px;
+    background-color: #333;
+    padding: 10px;
+    border: 1px solid #FFF;
+    border-right: 0;
+}
+
+.center {
+    text-align: center;
+}
+    
