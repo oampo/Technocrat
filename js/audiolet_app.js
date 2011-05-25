@@ -206,38 +206,44 @@ window.addEvent("domready", function() {
                     'synth': Kick,
                     'frequencyPattern': 'one',
                     'durationPattern': 'quarter',
-                    'octave': 1
+                    'octave': 1,
+                    'initialAmp': 0.5
                 },
                 {
                     'synth': Shaker,
                     'frequencyPattern': 'one',
                     'durationPattern': 'quarter',
-                    'octave': 1
+                    'octave': 1,
+                    'initialAmp': 0
                 },
                 
                 {
                     'synth': FM,
                     'frequencyPattern': '4 up 4',
                     'durationPattern': 'four',
-                    'octave': 2
+                    'octave': 2,
+                    'initialAmp': 0.5
                 },
                 {
                     'synth': FM,
                     'frequencyPattern': 'three',
                     'durationPattern': 'eighth',
-                    'octave': 4
+                    'octave': 4,
+                    'initialAmp': 0.2
                 },
                 {
                     'synth': FM,
                     'frequencyPattern': '3 up 4',
                     'durationPattern': 'sixteenth',
-                    'octave': 5
+                    'octave': 5,
+                    'initialAmp': 0.05
                 },
                 {
                     'synth': FM,
                     'frequencyPattern': '3 up 3',
                     'durationPattern': 'sextuplet',
-                    'octave': 6
+                    'octave': 6,
+                    'initialAmp': 0
                 }
             ];
             for (var i=0; i<this.channels.length; i++) {
@@ -281,6 +287,7 @@ window.addEvent("domready", function() {
                 channel.delay = new FeedbackDelay(this.audiolet);
                 channel.distortion = new Distortion(this.audiolet);
                 channel.amp = new Amp(this.audiolet);
+                channel.amp.gain.setValue(channel.initialAmp);
 
                 channel.mod.connect(channel.silence);
                 channel.silence.connect(this.audiolet.output);
@@ -333,6 +340,7 @@ window.addEvent("domready", function() {
 
                 // Sliders
                 var slider = new Slider(this, 50 + i * 80, 230, 40, 180);
+                slider.setValue(this.channels[i].initialAmp);
                 slider.callback = this.sliderCallback.bind(this, i);
                 this.sliders.push(slider);
 
