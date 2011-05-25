@@ -418,6 +418,8 @@ window.addEvent("domready", function() {
         },  
 
         frequencySpinBoxCallback: function(index, value) {
+            this.buttons[index].setValue(true);
+            this.buttonCallback(index);
             // TODO: This code should be in scheduler already
             var beat = this.audiolet.scheduler.beat;
             var beatPosition = beat % 4;
@@ -435,6 +437,8 @@ window.addEvent("domready", function() {
         },
 
         durationSpinBoxCallback: function(index, value) {
+            this.buttons[index].setValue(true);
+            this.buttonCallback(index);
             var beat = this.audiolet.scheduler.beat;
             var beatPosition = beat % 4;
             var nextBar = beat + (4 - beatPosition);
